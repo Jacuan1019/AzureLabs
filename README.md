@@ -31,6 +31,16 @@ This repository documents my practical experience building, configuring, securin
 
 **Status:** Identity and RBAC configuration verified. Workload authentication and blob access testing are planned.
 
+### 2. Azure Networking, NSGs & Routing Lab
+
+[View Networking Lab](azure-networking-nsg-routing-lab/README.md)
+
+**Technologies:** Azure Virtual Network, Subnets, Network Security Groups, Route Tables, CIDR, Azure System Routes
+
+**Summary:** Designed and configured an Azure virtual network with two subnets, subnet-level NSGs, and a route table. Verified configurations, analyzed NSG rule priorities, identified default-rule security considerations, and documented Azure routing behavior.
+
+**Status:** Infrastructure configuration verified. VM-to-VM connectivity testing not yet performed.
+
 ## My Lab Approach
 
 Each project follows a practical engineering process:
