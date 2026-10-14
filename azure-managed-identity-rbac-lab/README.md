@@ -88,3 +88,34 @@ Save sanitized screenshots under `screenshots/`:
 
 ## Cost notes
 Azure storage capacity and operations may incur charges. No VM was deployed for this identity test. A managed identity RBAC assignment alone is **not** evidence of an application access test.
+
+## Validation Update — October 13, 2026
+
+### Verified Configuration
+
+The following configuration was verified in the Azure portal:
+
+- The user-assigned managed identity `mi-azure-storage-lab` exists in resource group `rg-azure-network-lab`.
+- The identity has the **Storage Blob Data Reader** role assigned.
+- The role assignment scope is the `labfiles` blob container in the `stazurenetworklab` storage account.
+- The identity's Associated Resources view showed no associated workload resources at the time of verification.
+
+### Access Test Status
+
+**Status: Configuration verified; workload access not yet tested.**
+
+The identity's role assignment and scope were verified, but no workload was associated with the identity during this validation session. Therefore, token acquisition and blob access using this managed identity have not been demonstrated.
+
+### Next Steps
+
+1. Associate the identity with a supported Azure workload.
+2. Obtain a Microsoft Entra access token for Azure Storage through that workload's managed identity endpoint or supported SDK.
+3. Test reading the existing blob in `labfiles`.
+4. Confirm that write operations are denied under the Storage Blob Data Reader role.
+5. Record the test results and sanitized evidence.
+
+### Security Note
+
+The role assignment follows least-privilege scope by targeting the `labfiles` container rather than the entire storage account. Actual access still depends on successful authentication and any additional applicable storage-network or security controls.
+
+No successful workload access test is claimed in this update.
