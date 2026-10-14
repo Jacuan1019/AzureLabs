@@ -29,10 +29,10 @@ This hands-on lab demonstrates how to create a **user-assigned managed identity*
 
 ```mermaid
 flowchart TD
-    W[Future supported Azure workload\nNot yet deployed/associated] -.-> MI[User-assigned managed identity\nmi-azure-storage-lab]
-    MI --> R[Azure RBAC\nStorage Blob Data Reader]
-    R --> C[Private Blob container\nlabfiles]
-    C --> B[azure-lab-test.txt]
+    W["Future Azure workload<br/>Not yet deployed"] -.-> MI["User-assigned managed identity"]
+    MI --> RBAC["Storage Blob Data Reader"]
+    RBAC --> C["Private Blob container: labfiles"]
+    C --> B["Test blob: azure-lab-test.txt"]
 ```
 
 The dashed line represents **future work**, not a completed connection. The RBAC assignment exists, but no associated workload was shown in the portal.
@@ -118,4 +118,9 @@ The identity's role assignment and scope were verified, but no workload was asso
 
 The role assignment follows least-privilege scope by targeting the `labfiles` container rather than the entire storage account. Actual access still depends on successful authentication and any additional applicable storage-network or security controls.
 
+The following screenshot demonstrates the verified Storage Blob Data Reader assignment and its container-level scope.
+
+![Managed identity Blob Reader role assignment](Managed-identity-blob-reader-scope.png)
+
 No successful workload access test is claimed in this update.
+
